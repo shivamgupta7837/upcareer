@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "579423223506",
+    "project_id": "upcareer-3ac6b",
+    "storage_bucket": "upcareer-3ac6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579423223506:android:ed6fe78e161b69a81a770b",
+        "android_client_info": {
+          "package_name": "com.example.upcareer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579423223506-vjptj11atknqieeq3imk9mth2ocpoep0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4PYhZlPsbjFCtMxPRbkVipX--DGpOi0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579423223506-vjptj11atknqieeq3imk9mth2ocpoep0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
