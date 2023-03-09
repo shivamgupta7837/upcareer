@@ -1,21 +1,38 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:upcareer/screens/homepage.dart';
-import 'package:upcareer/web/tabs/AboutUs.dart';
-import 'package:upcareer/web/tabs/Admissionforms.dart';
-import 'package:upcareer/web/tabs/college_recommendation.dart';
-import 'package:upcareer/web/tabs/ask_query.dart';
+import 'package:upcareer/screens/web/tabs/AboutUs.dart';
+import 'package:upcareer/screens/web/tabs/Admissionforms.dart';
+import 'package:upcareer/screens/web/tabs/find_colleges.dart';
+import 'package:upcareer/screens/web/tabs/ask_query.dart';
+
 
 
 Future main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options:  FirebaseOptions(
-      apiKey: "AIzaSyCxCkA2KIdHPtT8FdM1kz-b7_-bOzDVgX4",
-      projectId: "upcareer-3ac6b",
-      messagingSenderId: "579423223506",
-      appId: "1:579423223506:web:43ca05eed9f4a8901a770b")
-  );
+
+  try {
+    await Firebase.initializeApp(
+      options:  const FirebaseOptions(
+          apiKey: "AIzaSyCxCkA2KIdHPtT8FdM1kz-b7_-bOzDVgX4",
+          projectId: "upcareer-3ac6b",
+          messagingSenderId: "579423223506",
+          appId: "1:579423223506:web:43ca05eed9f4a8901a770b"),
+    );
+  } on Exception catch (_) {
+    await Firebase.initializeApp(
+      name: "upcareer",
+      options:  const FirebaseOptions(
+          apiKey: "AIzaSyCxCkA2KIdHPtT8FdM1kz-b7_-bOzDVgX4",
+          projectId: "upcareer-3ac6b",
+          messagingSenderId: "579423223506",
+          appId: "1:579423223506:web:43ca05eed9f4a8901a770b"),
+    );
+  }
+
+
+  
+  
   runApp(const MyApp());
 }
 
@@ -31,7 +48,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/about': (context)=> const AboutUs(),
-        '/recommendations': (context)=> const CollegeRecommendation(),
+        '/recommendations': (context)=> const WebFindColleges(),
         '/ask_query': (context)=> AskQuery(),
         '/quick_links': (context)=> const QuickLinks(),
       },

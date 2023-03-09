@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:lottie/lottie.dart';
-import 'package:upcareer/mobile_body/mobiles_screens/mobAboutUs.dart';
-import 'package:upcareer/mobile_body/mobiles_screens/mobadmissionform.dart';
-import 'package:upcareer/mobile_body/mobiles_screens/mobfindcollege.dart';
-import 'package:upcareer/mobile_body/mobiles_screens/mob_ask_query.dart';
+import 'package:upcareer/constant/MyElevatedButton.dart';
+import 'package:upcareer/screens/mobile_body/mobiles_screens/mobAboutUs.dart';
+import 'package:upcareer/screens/mobile_body/mobiles_screens/mobadmissionform.dart';
+import 'package:upcareer/screens/mobile_body/mobiles_screens/mobfindcollege.dart';
+import 'package:upcareer/screens/mobile_body/mobiles_screens/mob_ask_query.dart';
+
+import '../../constant/colors.dart';
 
 
 class MobileBody extends StatefulWidget {
@@ -27,15 +29,15 @@ final tabs=[
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue[100],
+        backgroundColor: skyBlue,
         appBar: AppBar(
-          elevation: 7,
+          elevation: 0,
           shadowColor: Colors.black12,
-          backgroundColor: Colors.white,
+          backgroundColor: skyBlue,
           title: Text(
             "UpCareer",
-            style: GoogleFonts.poppins(
-                color: Colors.black, fontWeight: FontWeight.w700, fontSize: 15),
+            style: GoogleFonts.roboto(
+                color: Colors.black, fontWeight: FontWeight.w700, fontSize: 20),
           ),
           actions: [
             Container(
@@ -46,13 +48,16 @@ final tabs=[
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> MobAskQuery()));
               },
               style: ElevatedButton.styleFrom(
-                shadowColor: Colors.black26,
-                elevation: 8,
-                backgroundColor: Colors.lightBlue[100],
+                elevation: 0,
+                backgroundColor: skyBlue,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
                 maximumSize: const Size(100, 180),
+                side: BorderSide(
+                  color: darkBlue,
+                  width: 2
+                )
               ),
               child:
                   Text(
@@ -73,75 +78,39 @@ final tabs=[
   Center _mobileHomePage(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center ,
           children: [
              SizedBox(
                 height: 330,
-                child: Lottie.network(
-                    "https://assets7.lottiefiles.com/packages/lf20_dT1E1P.json")),
+                child: Image.asset(
+                    "assets/images/home_illustration.png")),
             const SizedBox(
               height: 20,
             ),
             Column(
               children: [
-                Text(
-                    "There's a bit of Better career in all of us, \n"
-                    "lets find it together. ",
-                    style: GoogleFonts.poppins(
-                        fontSize: 18, fontWeight: FontWeight.w400)),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: Column(children: [
+                    Text("Navigate Your",style: GoogleFonts.roboto(fontSize: 32,fontWeight: FontWeight.w500,color: Colors.black,fontStyle: FontStyle.italic),),
+                    Text("Career !",style: GoogleFonts.roboto(fontSize: 32,fontWeight: FontWeight.w500,color: Colors.black,fontStyle: FontStyle.italic),),
+                    const    SizedBox(height: 30,),
+                    Text("Start, your career with more than 100 courses and degrees from world class universities.",style: GoogleFonts.roboto(fontSize: 17,fontWeight: FontWeight.w300,color: Colors.black),),
+
+                  ],),
+                ),
+                const SizedBox(height: 30),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.03,
-                ),
-                Text(
-                  "- UpCareer",
-                  style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                      fontStyle: FontStyle.italic),
-                  textAlign: TextAlign.end,
-                ),
-              ],
-            ),
-            const SizedBox(height: 38,),
-            Container(
-              margin: const EdgeInsets.all(8),
-              width: 180,
-              height: 40,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
+                  height: 35,
+                  width: 170,
+                  child: CustomElevatedButton(label: 'Get Started', onPress: () {  Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MobFindCollege()));
-                },
-                style: ElevatedButton.styleFrom(
-                  elevation: 5,
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text("Get Started",
-                        style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black)),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    Icon(
-                      Icons.arrow_circle_right,
-                      color: Colors.lightBlue[100],
-                      size: 28,
-                    ),
-                  ],
-                ),
-              ),
+                          builder: (context) =>
+                          const MobFindCollege())); }, buttonBg: skyBlue,)
             ),
           ],
-        ),
+        ),])
     );
   }
 
@@ -151,7 +120,7 @@ final tabs=[
     return GNav(
       gap: 7,
       backgroundColor: Colors.white,
-      activeColor: Colors.black,
+      activeColor: darkBlue,
       tabBackgroundColor: Colors.white,
       padding:const  EdgeInsets.all(18),
       selectedIndex: currentIndex,

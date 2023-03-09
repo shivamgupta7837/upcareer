@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:upcareer/constant/MyElevatedButton.dart';
+import 'package:upcareer/constant/colors.dart';
 
-import '../../firebase/crud.dart';
+import '../../../firebase/crud.dart';
 
 class MobAskQuery extends StatefulWidget {
   MobAskQuery({super.key});
@@ -33,7 +35,7 @@ class _MobAskQueryState extends State<MobAskQuery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.lightBlue[100],
+        backgroundColor: skyBlue,
         appBar: AppBar(
           elevation: 3,
           backgroundColor: Colors.white,
@@ -117,13 +119,16 @@ class _MobAskQueryState extends State<MobAskQuery> {
                             decoration:
                                 const InputDecoration(hintText: "Contact"),
                             controller: _contactController,
-                            autofillHints: const [AutofillHints.telephoneNumber],
+                            autofillHints: const [
+                              AutofillHints.telephoneNumber
+                            ],
                             validator: (contact) {
                               if (contact!.isEmpty) {
-                                return "Enter valid contact";
-                              }else {
-                                return null;
+                                return 'Please enter your contact number';
+                              } else if (contact.length != 10) {
+                                return 'Contact number should be of 10 digits';
                               }
+                              return null;
                             },
                             keyboardType: TextInputType.number,
                           ),
@@ -160,44 +165,12 @@ class _MobAskQueryState extends State<MobAskQuery> {
   SizedBox _submitButton(BuildContext context) {
     return SizedBox(
       height: 40,
-      child: ElevatedButton(
-        onPressed: () {
-          if (_formKey.currentState!.validate()) {
-            final db = FireBase(
-                name: _nameController.text,
-                email: _emailController.text,
-                contact: int.parse(_contactController.text),
-                message: _messageController.text);
-            db.setUserDetials();
-            clearTextField();
-          }
+      child: CustomElevatedButton(
+        label: "Submit",
+        buttonBg: skyBlue,
+        onPress: () {
+          validateData();
         },
-        style: ElevatedButton.styleFrom(
-          elevation: 2,
-          backgroundColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text("Submit",
-                style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black)),
-            const SizedBox(
-              width: 8,
-            ),
-            Icon(
-              Icons.arrow_circle_right,
-              color: Colors.lightBlue.shade100,
-              size: 23,
-            ),
-          ],
-        ),
       ),
     );
   }
@@ -208,4 +181,17 @@ class _MobAskQueryState extends State<MobAskQuery> {
     _contactController.clear();
     _messageController.clear();
   }
+
+  void validateData() {
+      if (_formKey.currentState!.validate()) {
+        final db = FireBase(
+            name: _nameController.text,
+            email: _emailController.text,
+            contact: int.parse(_contactController.text),
+            message: _messageController.text);
+        db.setUserDetials();
+        clearTextField();
+      }
+  }
+
 }

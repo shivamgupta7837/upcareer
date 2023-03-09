@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:upcareer/widgets/app_bar.dart';
+import 'package:upcareer/constant/app_bar.dart';
 
 class QuickLinks extends StatelessWidget {
   const QuickLinks({Key? key}) : super(key: key);
@@ -9,7 +9,7 @@ class QuickLinks extends StatelessWidget {
     Size _size = MediaQuery.of(context).size;
     return  Scaffold(
       appBar:_size.width < 700? null: const   PreferredSize(
-        preferredSize:  Size.fromHeight(85.0),
+        preferredSize:  Size.fromHeight(56.0),
         child: MyAppBar(),
       ),
       body: const Center(

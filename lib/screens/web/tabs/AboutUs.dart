@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:upcareer/mobile_body/mobiles_screens/mobAboutUs.dart';
-import 'package:upcareer/widgets/app_bar.dart';
+import 'package:upcareer/screens/mobile_body/mobiles_screens/mobAboutUs.dart';
+import 'package:upcareer/constant/app_bar.dart';
 
 class AboutUs extends StatelessWidget {
   const AboutUs({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class AboutUs extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: _size.width <= 700 ? null :
         const PreferredSize(
-          preferredSize: Size.fromHeight(85.0),
+          preferredSize: Size.fromHeight(56.0),
           child: MyAppBar(),
         ),
         body: SingleChildScrollView(

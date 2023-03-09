@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upcareer/widgets/app_bar.dart';
+import 'package:upcareer/constant/MyElevatedButton.dart';
+import 'package:upcareer/constant/colors.dart';
+import 'package:upcareer/constant/app_bar.dart';
 
-import '../../firebase/crud.dart';
+import '../../../firebase/crud.dart';
 
 class AskQuery extends StatefulWidget {
+  const AskQuery({super.key});
+
   @override
   State<AskQuery> createState() => _AskQueryState();
 }
@@ -18,7 +22,6 @@ class _AskQueryState extends State<AskQuery> {
 
   final messageController = TextEditingController();
 
-  // final db = FirebaseFirestore.instance.collection("student_query").doc();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -36,11 +39,11 @@ class _AskQueryState extends State<AskQuery> {
     Size _size = MediaQuery.of(context).size;
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.lightBlue[100],
+        backgroundColor: skyBlue,
         appBar: _size.width < 700
             ? null
             : const PreferredSize(
-                preferredSize: Size.fromHeight(85.0),
+                preferredSize: Size.fromHeight(56.0),
                 child: MyAppBar(),
               ),
         body: askQuery(context));
@@ -61,12 +64,12 @@ class _AskQueryState extends State<AskQuery> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Contact Us",
+                  "Any Query ?",
                   style: GoogleFonts.poppins(
                       fontSize: 26, fontWeight: FontWeight.w600),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(hintText: "Name"),
+                  decoration:  InputDecoration(hintStyle: GoogleFonts.roboto(color: darkBlue),hintText: "Name"),
                   controller: nameController,
                   keyboardType: TextInputType.name,
                   validator: (name) {
@@ -81,8 +84,8 @@ class _AskQueryState extends State<AskQuery> {
                   height: MediaQuery.of(context).size.height * 0.04,
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: "E-Mail",
+                  decoration:  InputDecoration(
+                    hintStyle: GoogleFonts.roboto(color: darkBlue),hintText: "E-Mail",
                   ),
                   keyboardType: TextInputType.emailAddress,
                   autofillHints: [AutofillHints.email],
@@ -99,14 +102,15 @@ class _AskQueryState extends State<AskQuery> {
                   height: MediaQuery.of(context).size.height * 0.04,
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(hintText: "Contact"),
+                  decoration:  InputDecoration(hintStyle: GoogleFonts.roboto(color: darkBlue),hintText: "Contact"),
                   controller: contactController,
                   validator: (contact) {
                     if (contact!.isEmpty) {
-                      return "Enter valid contact";
-                    }else {
-                      return null;
+                      return 'Please enter your contact number';
+                    } else if (contact.length != 10) {
+                      return 'Contact number should be of 10 digits';
                     }
+                    return null;
                   },
                   keyboardType: TextInputType.number,
                 ),
@@ -114,7 +118,7 @@ class _AskQueryState extends State<AskQuery> {
                   height: MediaQuery.of(context).size.height * 0.04,
                 ),
                 TextFormField(
-                    decoration: const InputDecoration(hintText: "Message"),
+                    decoration:  InputDecoration(hintStyle: GoogleFonts.roboto(color: darkBlue),hintText: "Message"),
                     controller: messageController,
                     validator: (messgae) {
                       if (messgae!.isEmpty) {
@@ -138,41 +142,7 @@ class _AskQueryState extends State<AskQuery> {
   SizedBox _submitButton(BuildContext context) {
     return SizedBox(
       height: 35,
-      child: ElevatedButton(
-        onPressed: () {
-      if(_formKey.currentState!.validate()){
-        final db = FireBase(name: nameController.text, email: emailController.text, contact: int.parse(contactController.text), message: messageController.text);
-        db.setUserDetials();
-        clearTextField();
-      }
-        },
-        style: ElevatedButton.styleFrom(
-          elevation: 3,
-          backgroundColor: Colors.lightBlue[100],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text("Get Started",
-                style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black)),
-            const SizedBox(
-              width: 8,
-            ),
-            const Icon(
-              Icons.arrow_circle_right,
-              color: Colors.white,
-              size: 23,
-            ),
-          ],
-        ),
-      ),
+      child: CustomElevatedButton(label: 'Submit', onPress: () { setUserData();}, buttonBg: Colors.white,)
     );
   }
 
@@ -181,5 +151,13 @@ class _AskQueryState extends State<AskQuery> {
     emailController.clear();
     contactController.clear();
     messageController.clear();
+  }
+
+  void setUserData() {
+    if(_formKey.currentState!.validate()){
+      final db = FireBase(name: nameController.text, email: emailController.text, contact: int.parse(contactController.text), message: messageController.text);
+      db.setUserDetials();
+      clearTextField();
+    }
   }
 }

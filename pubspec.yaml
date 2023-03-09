@@ -41,7 +41,8 @@ dependencies:
   firebase_core: 2.7.0
   cloud_firestore: ^4.4.3
   email_validator: 2.1.17
-  fluttertoast: 8.2.1
+  flutterfire: ^0.0.1
+  configure: ^1.0.1
 
 dev_dependencies:
   flutter_test:
