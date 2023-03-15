@@ -7,8 +7,10 @@ class CustomElevatedButton extends StatelessWidget {
 final String label;
 final VoidCallback onPress;
 final Color buttonBg;
+final IconData? icon;
+var textDir;
 
-  const CustomElevatedButton({required this.label, required this.onPress, required this.buttonBg});
+    CustomElevatedButton({super.key, required this.label, required this.onPress, required this.buttonBg, this.icon,this.textDir});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ final Color buttonBg;
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
+        elevation: 1,
         side:  BorderSide(
             width: 1.0,
             color: darkBlue
@@ -32,12 +35,12 @@ final Color buttonBg;
               style: GoogleFonts.poppins(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
-                  color: Colors.black)),
+                  color: Colors.black),textAlign: textDir,),
           const SizedBox(
             width: 8,
           ),
           Icon(
-            Icons.arrow_circle_right,
+           icon,
             color: darkBlue,
             size: 23,
           ),

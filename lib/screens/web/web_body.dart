@@ -82,12 +82,10 @@ class WebBody extends StatelessWidget {
                 child: CustomElevatedButton(
                   label: 'Get Started',
                   onPress: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => WebFindColleges()));
+                      Navigator.pushNamed(context, '/recommendations');
                   },
                   buttonBg: skyBlue,
+                    icon: Icons.arrow_circle_right
                 ))
           ],
         ),

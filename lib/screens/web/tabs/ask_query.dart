@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:upcareer/constant/MyElevatedButton.dart';
 import 'package:upcareer/constant/colors.dart';
 import 'package:upcareer/constant/app_bar.dart';
+import 'package:upcareer/constant/myFormField.dart';
 
 import '../../../firebase/crud.dart';
 
@@ -68,65 +69,44 @@ class _AskQueryState extends State<AskQuery> {
                   style: GoogleFonts.poppins(
                       fontSize: 26, fontWeight: FontWeight.w600),
                 ),
-                TextFormField(
-                  decoration:  InputDecoration(hintStyle: GoogleFonts.roboto(color: darkBlue),hintText: "Name"),
-                  controller: nameController,
-                  keyboardType: TextInputType.name,
-                  validator: (name) {
-                    if (name!.isEmpty) {
-                      return "Enter valid name";
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.04,
-                ),
-                TextFormField(
-                  decoration:  InputDecoration(
-                    hintStyle: GoogleFonts.roboto(color: darkBlue),hintText: "E-Mail",
-                  ),
-                  keyboardType: TextInputType.emailAddress,
-                  autofillHints: [AutofillHints.email],
-                  validator: (email) {
-                    if (email!.isEmpty) {
-                      return "Enter valid email";
-                    } else {
-                      return null;
-                    }
-                  },
-                  controller: emailController,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.04,
-                ),
-                TextFormField(
-                  decoration:  InputDecoration(hintStyle: GoogleFonts.roboto(color: darkBlue),hintText: "Contact"),
-                  controller: contactController,
-                  validator: (contact) {
-                    if (contact!.isEmpty) {
-                      return 'Please enter your contact number';
-                    } else if (contact.length != 10) {
-                      return 'Contact number should be of 10 digits';
-                    }
+                MyTextField(customController: nameController, hintText: 'Name', customValidator:  (validatorVariable) {
+                  if (validatorVariable!.isEmpty) {
+                    return "Enter valid name";
+                  } else {
                     return null;
-                  },
-                  keyboardType: TextInputType.number,
-                ),
+                  }
+                }, keyBoardType: TextInputType.name,),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.04,
                 ),
-                TextFormField(
-                    decoration:  InputDecoration(hintStyle: GoogleFonts.roboto(color: darkBlue),hintText: "Message"),
-                    controller: messageController,
-                    validator: (messgae) {
-                      if (messgae!.isEmpty) {
-                        return "This field cannot be empty";
-                      } else {
-                        return null;
-                      }
-                    }),
+               MyTextField(customController: emailController, hintText: 'E-mail', customValidator:  (email) {
+                 if (email!.isEmpty) {
+                   return "Enter valid email";
+                 } else {
+                   return null;
+                 }
+               }, keyBoardType: TextInputType.emailAddress,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.04,
+                ),
+               MyTextField(customController: contactController, hintText: 'Contact', customValidator: (contact) {
+                 if (contact!.isEmpty) {
+                   return 'Please enter your contact number';
+                 } else if (contact.length != 10) {
+                   return 'Contact number should be of 10 digits';
+                 }
+                 return null;
+               }, keyBoardType: TextInputType.phone,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.04,
+                ),
+               MyTextField(customController: messageController, hintText: 'Message', customValidator: (messgae) {
+                 if (messgae!.isEmpty) {
+                   return "This field cannot be empty";
+                 } else {
+                   return null;
+                 }
+               }, keyBoardType: TextInputType.text),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.049,
                 ),
@@ -142,7 +122,7 @@ class _AskQueryState extends State<AskQuery> {
   SizedBox _submitButton(BuildContext context) {
     return SizedBox(
       height: 35,
-      child: CustomElevatedButton(label: 'Submit', onPress: () { setUserData();}, buttonBg: Colors.white,)
+      child: CustomElevatedButton(label: 'Submit', onPress: () { setUserData();}, buttonBg: Colors.white,icon: Icons.arrow_circle_right)
     );
   }
 

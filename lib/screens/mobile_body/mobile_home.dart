@@ -107,7 +107,7 @@ final tabs=[
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                          const MobFindCollege())); }, buttonBg: skyBlue,)
+                          const MobFindCollege())); }, buttonBg: skyBlue,icon: Icons.arrow_circle_right,)
             ),
           ],
         ),])

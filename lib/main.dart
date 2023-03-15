@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:upcareer/data_check.dart';
 import 'package:upcareer/screens/homepage.dart';
 import 'package:upcareer/screens/web/tabs/AboutUs.dart';
 import 'package:upcareer/screens/web/tabs/Admissionforms.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
         '/ask_query': (context)=> AskQuery(),
         '/quick_links': (context)=> const QuickLinks(),
       },
+      // home: CheckData(),
     );
   }
 

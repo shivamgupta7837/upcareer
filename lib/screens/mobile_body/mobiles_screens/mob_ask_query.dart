@@ -171,6 +171,7 @@ class _MobAskQueryState extends State<MobAskQuery> {
         onPress: () {
           validateData();
         },
+          icon: Icons.arrow_circle_right
       ),
     );
   }
