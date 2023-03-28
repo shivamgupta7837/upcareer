@@ -135,8 +135,8 @@ class _AskQueryState extends State<AskQuery> {
 
   void setUserData() {
     if(_formKey.currentState!.validate()){
-      final db = FireBase(name: nameController.text, email: emailController.text, contact: int.parse(contactController.text), message: messageController.text);
-      db.setUserDetials();
+      final db = StudentsQueries.getformDetails(name: nameController.text, email: emailController.text, contact: int.parse(contactController.text), message: messageController.text);
+      db.setUserDetails();
       clearTextField();
     }
   }

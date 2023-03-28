@@ -24,25 +24,4 @@ class CollegesData {
     );
   }
 
-  // factory CollegesData.fromDataBase(
-  //     DocumentSnapshot<Map<String, dynamic>> document) {
-  //   return CollegesData(
-  //     collegeName: document.data.toString().contains('university_name')
-  //         ? document.get('university_name')
-  //         : 'not given',
-  //     collegeLocation: document.data.toString().contains('location')
-  //         ? document.get('location')
-  //         : 'not given',
-  //     fees: document.data.toString().contains('fees')
-  //         ? document.get('fees')
-  //         : 'not given',
-  //     admissionForm: document.data.toString().contains('admission_form')
-  //         ? document.get('admission_form')
-  //         : 'not given',
-  //     scholarship: document.data.toString().contains('scholarship')
-  //         ? document.get('scholarship')
-  //         : 'not given',
-  //   );
-  // }
-
 }

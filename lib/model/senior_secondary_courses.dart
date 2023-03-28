@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:upcareer/constant/choose_subjects.dart';
 import 'package:upcareer/constant/myFormField.dart';
+import 'package:upcareer/firebase/crud.dart';
 
 class SubjectsForSeniorSecondary {
   final _medicalFormKey = GlobalKey<FormState>();
@@ -7,8 +9,9 @@ class SubjectsForSeniorSecondary {
   final _commerceFormKey = GlobalKey<FormState>();
   final _humanitiesFormKey = GlobalKey<FormState>();
 
-
-  Form subjectsForMedical(TextEditingController favSubject) {
+  Form subjectsForMedical(
+      {required TextEditingController favSubject,
+      required BuildContext context}) {
     return Form(
       key: _medicalFormKey,
       child: SizedBox(
@@ -25,7 +28,7 @@ class SubjectsForSeniorSecondary {
                 course != 'physics' &&
                 course != 'english' &&
                 course != 'chemistry' &&
-                course != 'physical-education') {
+                course != 'physical education') {
               print(course);
               return "Enter courses related to medical Eg: Biology, Physics, chemistry.";
             } else {
@@ -48,7 +51,9 @@ class SubjectsForSeniorSecondary {
     );
   }
 
-  Form subjectsForNonMedical(TextEditingController favSubject) {
+  Form subjectsForNonMedical(
+      {required TextEditingController favSubject,
+      required BuildContext context}) {
     return Form(
       key: _nonMedicalFormKey,
       child: SizedBox(
@@ -86,7 +91,10 @@ class SubjectsForSeniorSecondary {
     );
   }
 
-  Form subjectsForCommerce(TextEditingController favSubject) {
+  Form subjectsForCommerce(
+      {required TextEditingController favSubject,
+      required BuildContext context}) {
+    final course = favSubject.text.toLowerCase();
     return Form(
       key: _commerceFormKey,
       child: SizedBox(
@@ -96,15 +104,14 @@ class SubjectsForSeniorSecondary {
           customController: favSubject,
           hintText: 'Ex: Maths, Accountancy, Business-Studies',
           customValidator: (text) {
-            final course = text.toString().toLowerCase();
             if (course.isEmpty) {
               return "This field cannot be empty";
             } else if (course != 'maths' &&
-                course != 'Accountancy' &&
+                course != 'accountancy' &&
                 course != 'english' &&
-                course != 'Business-Studies' &&
+                course != 'business_studies' &&
                 course != 'economics' &&
-                course != 'physical-education') {
+                course != 'physical education') {
               return "Enter courses related to commerce Eg: Accountancy, maths, english";
             } else {
               return null;
@@ -113,19 +120,29 @@ class SubjectsForSeniorSecondary {
           keyBoardType: TextInputType.text,
           enableborder: true,
           suffixIcon: IconButton(
-            icon: const Icon(Icons.search_rounded),
-            onPressed: () {
-              if (_commerceFormKey.currentState!.validate()) {
-                print("commerce validate");
-              }
-            },
-          ),
+              icon: const Icon(Icons.search_rounded),
+              onPressed: () {
+                if (_commerceFormKey.currentState!.validate()) {
+                  if (course == "economics") {
+                    GetDocPath.path="economics";
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ChooseSubjects()));
+                  }else if(course == "accountancy"){
+                    GetDocPath.path="accountancy";
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ChooseSubjects()));
+                  }else if(course == "business_studies"){
+                    GetDocPath.path="business studies";
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ChooseSubjects()));
+                  }
+                }
+              }),
         ),
       ),
     );
   }
 
-  Form subjectsForHumanities(TextEditingController favSubject) {
+  Form subjectsForHumanities(
+      {required TextEditingController favSubject,
+      required BuildContext context}) {
     return Form(
       key: _humanitiesFormKey,
       child: SizedBox(

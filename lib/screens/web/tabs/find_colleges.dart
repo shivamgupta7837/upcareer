@@ -48,9 +48,9 @@ class _WebFindCollegesState extends State<WebFindColleges> {
             /// pop up container
             if(isSeniorSecondaryPressed == true)
                 Container(
-              margin: EdgeInsets.only(top: 130,left: 330),
-                    height:isSeniorSecondaryPressed==true ? 400: 0,
-                    width: isSeniorSecondaryPressed==true ?700:0,
+              margin: EdgeInsets.only(top: 195,left: 330),
+                    height:isSeniorSecondaryPressed==true ? 275: 0, //height of floating container
+                    width: isSeniorSecondaryPressed==true ?700:0, //width of floating container
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(9.0),
@@ -60,8 +60,8 @@ class _WebFindCollegesState extends State<WebFindColleges> {
                         ///heading container
                         Container(
                           padding: const EdgeInsets.only(left: 20, right: 20),
-                          height: 70,
-                          color: Colors.lightBlue[100],
+                          height: 65,
+                          color: skyBlue,
                           child: Row(
                             children: [
                               Text(
@@ -78,6 +78,7 @@ class _WebFindCollegesState extends State<WebFindColleges> {
                             ],
                           ),
                         ),
+                        //it contain container for adding details of user preferences
                         DetailsOfSeniorSecondaryForm(),
                       ],
                     ))

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upcareer/constant/MyElevatedButton.dart';
 
-import '../../../model/widgetModels/senior_secondary_courses.dart';
+import '../../../model/senior_secondary_courses.dart';
 
 class DetailsOfSeniorSecondaryForm extends StatefulWidget {
 
@@ -14,16 +14,17 @@ class DetailsOfSeniorSecondaryForm extends StatefulWidget {
 
 class _DetailsOfSeniorSecondaryFormState extends State<DetailsOfSeniorSecondaryForm> {
   ///course from 12 th or post graduation
-  final TextEditingController favSubject1Controller = TextEditingController();
-  final TextEditingController favSubject2Controller = TextEditingController();
-  final TextEditingController favSubject3Controller = TextEditingController();
-  final TextEditingController favSubject4Controller = TextEditingController();
+  final TextEditingController medicalSubjectController = TextEditingController();
+  final TextEditingController nonMedSubjectController = TextEditingController();
+  final TextEditingController commSubjectController = TextEditingController();
+  final TextEditingController humanitiesSubjectController = TextEditingController();
   String course="medical";
   final subjects = SubjectsForSeniorSecondary();
 
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
       padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,31 +51,16 @@ class _DetailsOfSeniorSecondaryFormState extends State<DetailsOfSeniorSecondaryF
           const SizedBox(
             height: 12,
           ),
+        ///This contain texfield using switch statement
         courseSelection(course),
           const SizedBox(
-            height: 12,
-          ),          Text(
-              "Choose degree on for college recommendation",
-              style:
-              GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.w500)
+            height: 25,
           ),
-          const SizedBox(
-            height: 16,
-          ),
-          Wrap(
-            spacing: 8.0,
-            runSpacing: 8.0,
-            children: List.generate(10, (index) {
-              return CustomElevatedButton(label: "course1", onPress: (){
-                print("Pressed");
-              }, buttonBg: Colors.white,
-              icon: Icons.check_circle,);
-            }),
-          )
         ],
       ),
     );
   }
+
 
   Row choose12thStream() {
     return Row(
@@ -126,18 +112,17 @@ class _DetailsOfSeniorSecondaryFormState extends State<DetailsOfSeniorSecondaryF
   courseSelection(String courseName) {
     switch(courseName){
       case "medical":
-        return subjects.subjectsForMedical(favSubject1Controller);
+        return subjects.subjectsForMedical(favSubject: medicalSubjectController,context:context);
 
       case "non-med":
-        return subjects.subjectsForNonMedical(favSubject2Controller);
+        return subjects.subjectsForNonMedical(favSubject: nonMedSubjectController,context:context);
 
       case "commerce":
-        return subjects.subjectsForCommerce(favSubject3Controller);
+        return subjects.subjectsForCommerce(favSubject: commSubjectController,context:context);
 
       case "humanities":
-        return subjects.subjectsForHumanities(favSubject4Controller);
+        return subjects.subjectsForHumanities(favSubject: humanitiesSubjectController,context:context);
     }
   }
-
 
 }

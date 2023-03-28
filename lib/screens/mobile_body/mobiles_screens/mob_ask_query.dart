@@ -185,12 +185,12 @@ class _MobAskQueryState extends State<MobAskQuery> {
 
   void validateData() {
       if (_formKey.currentState!.validate()) {
-        final db = FireBase(
+        final db = StudentsQueries.getformDetails(
             name: _nameController.text,
             email: _emailController.text,
             contact: int.parse(_contactController.text),
             message: _messageController.text);
-        db.setUserDetials();
+        db.setUserDetails();
         clearTextField();
       }
   }

@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:upcareer/constant/MyElevatedButton.dart';
 import 'package:upcareer/screens/mobile_body/mobiles_screens/mobAboutUs.dart';
-import 'package:upcareer/screens/mobile_body/mobiles_screens/mobadmissionform.dart';
 import 'package:upcareer/screens/mobile_body/mobiles_screens/mobfindcollege.dart';
 import 'package:upcareer/screens/mobile_body/mobiles_screens/mob_ask_query.dart';
 
@@ -23,7 +22,6 @@ final tabs=[
  const MobileBody(),
   const MobFindCollege(),
   const MobileAboutUs(),
-  const MobAdmissionForm()
 ];
 
   @override
@@ -147,12 +145,7 @@ final tabs=[
             iconSize: 30,
             iconColor: Colors.black,
         ),
-          GButton(
-            icon: Icons.link_sharp,
-            text: 'Quick Linkes',
-            iconSize: 30,
-            iconColor: Colors.black,
-        )
+
       ],
     );
   }

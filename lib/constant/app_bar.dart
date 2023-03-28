@@ -63,19 +63,7 @@ class MyAppBar extends StatelessWidget {
                       fontSize: 17),
                   "About Us"),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                    context,
-                   '/quick_links');
-              },
-              child:  Text(
-                  style: GoogleFonts.roboto(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 17),
-                  "Quick links"),
-            ),
+           
             const SizedBox(
               width: 30,
             ),
