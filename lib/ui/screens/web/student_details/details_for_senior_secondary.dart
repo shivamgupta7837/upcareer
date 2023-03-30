@@ -13,11 +13,6 @@ class DetailsOfSeniorSecondaryForm extends StatefulWidget {
 }
 
 class _DetailsOfSeniorSecondaryFormState extends State<DetailsOfSeniorSecondaryForm> {
-  ///course from 12 th or post graduation
-  final TextEditingController medicalSubjectController = TextEditingController();
-  final TextEditingController nonMedSubjectController = TextEditingController();
-  final TextEditingController commSubjectController = TextEditingController();
-  final TextEditingController humanitiesSubjectController = TextEditingController();
   String course="medical";
   final subjects = SubjectsForSeniorSecondary();
 

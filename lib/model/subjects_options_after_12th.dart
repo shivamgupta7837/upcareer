@@ -9,14 +9,14 @@ class SubjectsForSeniorSecondary {
   final _commerceFormKey = GlobalKey<FormState>();
   final _humanitiesFormKey = GlobalKey<FormState>();
 
-  final TextEditingController medicalSubjectController = TextEditingController();
+  final TextEditingController medicalSubjectController =
+      TextEditingController();
   final TextEditingController nonMedSubjectController = TextEditingController();
   final TextEditingController commSubjectController = TextEditingController();
-  final TextEditingController humanitiesSubjectController = TextEditingController();
+  final TextEditingController humanitiesSubjectController =
+      TextEditingController();
 
-  Form subjectsForMedical(
-      {
-      required BuildContext context}) {
+  Form subjectsForMedical({required BuildContext context}) {
     return Form(
       key: _medicalFormKey,
       child: SizedBox(
@@ -56,9 +56,7 @@ class SubjectsForSeniorSecondary {
     );
   }
 
-  Form subjectsForNonMedical(
-      {
-      required BuildContext context}) {
+  Form subjectsForNonMedical({required BuildContext context}) {
     return Form(
       key: _nonMedicalFormKey,
       child: SizedBox(
@@ -96,9 +94,7 @@ class SubjectsForSeniorSecondary {
     );
   }
 
-  Form subjectsForCommerce(
-      {
-      required BuildContext context}) {
+  Form subjectsForCommerce({required BuildContext context}) {
     return Form(
       key: _commerceFormKey,
       child: SizedBox(
@@ -129,27 +125,26 @@ class SubjectsForSeniorSecondary {
             onPressed: () {
               if (_commerceFormKey.currentState!.validate()) {
                 print("yes validate");
-                  if (commSubjectController.text == "economics") {
-                    print("in 2nd if");
-                    GetDocPath.path = "economics";
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ChooseSubjects()));
-                  } else if (commSubjectController.text == "accountancy") {
-                    GetDocPath.path = "accountancy";
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ChooseSubjects()));
-                  } else if (commSubjectController.text == "business studies") {
-                    GetDocPath.path = "business studies";
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ChooseSubjects()));
-                  }
-
+                if (commSubjectController.text == "economics") {
+                  print("in 2nd if");
+                  GetDocPath.path = "economics";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChooseSubjects()));
+                } else if (commSubjectController.text == "accountancy") {
+                  GetDocPath.path = "accountancy";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChooseSubjects()));
+                } else if (commSubjectController.text == "business studies") {
+                  GetDocPath.path = "business studies";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChooseSubjects()));
+                }
               }
             },
           ),
@@ -158,9 +153,7 @@ class SubjectsForSeniorSecondary {
     );
   }
 
-  Form subjectsForHumanities(
-      {
-      required BuildContext context}) {
+  Form subjectsForHumanities({required BuildContext context}) {
     return Form(
       key: _humanitiesFormKey,
       child: SizedBox(
