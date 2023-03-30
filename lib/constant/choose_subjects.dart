@@ -12,7 +12,6 @@ class ChooseSubjects extends StatelessWidget {
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: darkBlue.withOpacity(0.33),
       appBar: AppBar(
         leading: IconButton(
           icon:const Icon(
@@ -36,17 +35,27 @@ class ChooseSubjects extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            _size.width >700 ?
             Text(
                 "What field you want to search colleges/universities ?",
                 style: GoogleFonts.roboto(
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
-                    fontStyle: FontStyle.italic)),
+                    fontStyle: FontStyle.italic)): Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                    "What field you want to search \n colleges/universities ?",
+                    style: GoogleFonts.roboto(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        fontStyle: FontStyle.italic))
+              ],
+            ),
            const SizedBox(height: 120,),
             //subjects container
             SizedBox(
-              // height: _size.height < 700 ? 100 : 400,
-              width: _size.width < 700 ? 100 : 400,
+              width: _size.width < 700 ? 300 : 400,
               child: FutureBuilder<DocumentSnapshot>(
                 future: db.getUserDegree(),
                 builder: (context, snapshot) {
