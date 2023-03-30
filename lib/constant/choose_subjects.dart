@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:upcareer/firebase/crud.dart';
-import 'package:upcareer/screens/web/tabs/find_colleges.dart';
+import 'package:upcareer/ui/screens/web/tabs/find_colleges.dart';
 import 'colors.dart';
 
 class ChooseSubjects extends StatelessWidget {
@@ -13,12 +12,12 @@ class ChooseSubjects extends StatelessWidget {
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: skyBlue.withOpacity(0.33),
+      backgroundColor: darkBlue.withOpacity(0.33),
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(
+          icon:const Icon(
             Icons.arrow_back,
-            color: skyBlue,
+            color: Colors.black,
           ),
           onPressed: () {
             Navigator.pop(context);
@@ -35,19 +34,18 @@ class ChooseSubjects extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 28.0),
-              child: Text(
-                  "What field you want to search colleges/universities ?",
-                  style: GoogleFonts.roboto(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                      fontStyle: FontStyle.italic)),
-            ),
+            Text(
+                "What field you want to search colleges/universities ?",
+                style: GoogleFonts.roboto(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    fontStyle: FontStyle.italic)),
+           const SizedBox(height: 120,),
+            //subjects container
             SizedBox(
-              height: _size.height < 700 ? 100 : 400,
+              // height: _size.height < 700 ? 100 : 400,
               width: _size.width < 700 ? 100 : 400,
               child: FutureBuilder<DocumentSnapshot>(
                 future: db.getUserDegree(),
@@ -59,7 +57,7 @@ class ChooseSubjects extends StatelessWidget {
                   }
 
                   if (snapshot.hasError) {
-                    return Center(
+                    return const Center(
                       child: Text('Error: snapshot.error}'),
                     );
                   }
@@ -91,9 +89,9 @@ class ChooseSubjects extends StatelessWidget {
             title: Text(
               "${snapshot.data!['degree1']}",
               style: GoogleFonts.poppins(
-                  fontSize: 16, fontWeight: FontWeight.w400),
+                  fontSize: 14, fontWeight: FontWeight.w400),
             ),
-            trailing:Lottie.asset("images/slide_right.json",height: 20,width: 30),
+            trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
               print("pressed");
             },
@@ -108,9 +106,9 @@ class ChooseSubjects extends StatelessWidget {
             title: Text(
               "${snapshot.data!['degree2']}",
               style: GoogleFonts.poppins(
-                  fontSize: 16, fontWeight: FontWeight.w400),
+                  fontSize: 14, fontWeight: FontWeight.w400),
             ),
-            trailing:Lottie.asset("images/slide_right.json",height: 20,width: 30),
+            trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
               print("pressed");
             },
@@ -125,9 +123,9 @@ class ChooseSubjects extends StatelessWidget {
             title: Text(
               "${snapshot.data!['degree3']}",
               style: GoogleFonts.poppins(
-                  fontSize: 16, fontWeight: FontWeight.w400),
+                  fontSize: 14, fontWeight: FontWeight.w400),
             ),
-            trailing:Lottie.asset("images/slide_right.json",height: 20,width: 30),
+            trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
               print("pressed");
             },
@@ -142,9 +140,9 @@ class ChooseSubjects extends StatelessWidget {
             title: Text(
               "${snapshot.data!['degree4']}",
               style: GoogleFonts.poppins(
-                  fontSize: 16, fontWeight: FontWeight.w400),
+                  fontSize: 14, fontWeight: FontWeight.w400),
             ),
-            trailing:Lottie.asset("images/slide_right.json",height: 20,width: 30),
+            trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
               print("pressed");
             },
@@ -162,7 +160,7 @@ class ChooseSubjects extends StatelessWidget {
                 },
                 child: Text(
                   "Want to explore more fields ?",
-                  style: GoogleFonts.roboto(fontSize: 16, color: darkBlue,fontWeight: FontWeight.w400),
+                  style: TextStyle(fontSize: 17, color: darkBlue,fontWeight: FontWeight.w400),
                 ))
           ],
         ),

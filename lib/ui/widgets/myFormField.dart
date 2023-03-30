@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upcareer/constant/colors.dart';
 
@@ -41,6 +42,9 @@ class MyTextField extends StatelessWidget {
       keyboardType: keyBoardType,
       validator: customValidator,
       autocorrect: true,
+      inputFormatters: [
+        FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-Z\d_ |]+$')),
+      ],
     );
   }
 }

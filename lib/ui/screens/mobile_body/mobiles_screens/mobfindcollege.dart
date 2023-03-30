@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upcareer/constant/MyElevatedButton.dart';
 import 'package:upcareer/constant/colors.dart';
+import 'package:upcareer/ui/widgets/MyElevatedButton.dart';
 
 import '../../web/student_details/details_for_senior_secondary.dart';
 

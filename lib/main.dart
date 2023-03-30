@@ -1,9 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:upcareer/screens/homepage.dart';
-import 'package:upcareer/screens/web/tabs/AboutUs.dart';
-import 'package:upcareer/screens/web/tabs/find_colleges.dart';
-import 'package:upcareer/screens/web/tabs/ask_query.dart';
+import 'package:upcareer/dummy.dart';
+import 'package:upcareer/ui/screens/homepage.dart';
+import 'package:upcareer/ui/screens/web/tabs/AboutUs.dart';
+import 'package:upcareer/ui/screens/web/tabs/find_colleges.dart';
+import 'package:upcareer/ui/screens/web/tabs/ask_query.dart';
 
 import 'constant/choose_subjects.dart';
 
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
         '/recommendations': (context)=> const WebFindColleges(),
         '/ask_query': (context)=> AskQuery(),
       },
-      // home: UserDetailsScreen(),
+      // home: Dummy(),
     );
   }
 

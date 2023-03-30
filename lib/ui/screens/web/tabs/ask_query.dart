@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upcareer/constant/MyElevatedButton.dart';
 import 'package:upcareer/constant/colors.dart';
-import 'package:upcareer/constant/app_bar.dart';
-import 'package:upcareer/constant/myFormField.dart';
+import 'package:upcareer/ui/widgets/MyElevatedButton.dart';
+import 'package:upcareer/ui/widgets/app_bar.dart';
+import 'package:upcareer/ui/widgets/myFormField.dart';
 
-import '../../../firebase/crud.dart';
+import '../../../../firebase/crud.dart';
 
 class AskQuery extends StatefulWidget {
   const AskQuery({super.key});

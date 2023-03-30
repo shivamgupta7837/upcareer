@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:upcareer/screens/mobile_body/mobiles_screens/mobAboutUs.dart';
-import 'package:upcareer/constant/app_bar.dart';
+import 'package:upcareer/ui/screens/mobile_body/mobiles_screens/mobAboutUs.dart';
+import 'package:upcareer/ui/widgets/app_bar.dart';
 
 class AboutUs extends StatelessWidget {
   const AboutUs({Key? key}) : super(key: key);

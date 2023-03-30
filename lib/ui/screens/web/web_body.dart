@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upcareer/constant/MyElevatedButton.dart';
 import 'package:upcareer/constant/colors.dart';
-import 'package:upcareer/screens/web/tabs/find_colleges.dart';
-import '../../constant/app_bar.dart';
+import 'package:upcareer/ui/screens/web/tabs/find_colleges.dart';
+import 'package:upcareer/ui/widgets/MyElevatedButton.dart';
+import '../../widgets/app_bar.dart';
 
 class WebBody extends StatelessWidget {
   @override

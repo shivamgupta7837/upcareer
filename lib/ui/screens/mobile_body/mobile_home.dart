@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:upcareer/constant/MyElevatedButton.dart';
-import 'package:upcareer/screens/mobile_body/mobiles_screens/mobAboutUs.dart';
-import 'package:upcareer/screens/mobile_body/mobiles_screens/mobfindcollege.dart';
-import 'package:upcareer/screens/mobile_body/mobiles_screens/mob_ask_query.dart';
+import 'package:upcareer/ui/screens/mobile_body/mobiles_screens/mobAboutUs.dart';
+import 'package:upcareer/ui/screens/mobile_body/mobiles_screens/mobfindcollege.dart';
+import 'package:upcareer/ui/screens/mobile_body/mobiles_screens/mob_ask_query.dart';
+import 'package:upcareer/ui/widgets/MyElevatedButton.dart';
 
-import '../../constant/colors.dart';
+import '../../../constant/colors.dart';
 
 
 class MobileBody extends StatefulWidget {

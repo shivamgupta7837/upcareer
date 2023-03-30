@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upcareer/constant/MyElevatedButton.dart';
+import 'package:upcareer/ui/widgets/MyElevatedButton.dart';
 
-import '../../../model/senior_secondary_courses.dart';
+import '../../../../model/subjects_options_after_12th.dart';
 
 class DetailsOfSeniorSecondaryForm extends StatefulWidget {
 
@@ -112,16 +112,16 @@ class _DetailsOfSeniorSecondaryFormState extends State<DetailsOfSeniorSecondaryF
   courseSelection(String courseName) {
     switch(courseName){
       case "medical":
-        return subjects.subjectsForMedical(favSubject: medicalSubjectController,context:context);
+        return subjects.subjectsForMedical(context:context);
 
       case "non-med":
-        return subjects.subjectsForNonMedical(favSubject: nonMedSubjectController,context:context);
+        return subjects.subjectsForNonMedical(context:context);
 
       case "commerce":
-        return subjects.subjectsForCommerce(favSubject: commSubjectController,context:context);
+        return subjects.subjectsForCommerce(context:context);
 
       case "humanities":
-        return subjects.subjectsForHumanities(favSubject: humanitiesSubjectController,context:context);
+        return subjects.subjectsForHumanities(context:context);
     }
   }
 

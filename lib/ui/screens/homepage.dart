@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:upcareer/screens/mobile_body/mobile_home.dart';
+import 'package:upcareer/ui/screens/mobile_body/mobile_home.dart';
 import 'package:upcareer/responsive/responsive.dart';
-import 'package:upcareer/screens/web/web_body.dart';
+import 'package:upcareer/ui/screens/web/web_body.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
