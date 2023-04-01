@@ -33,13 +33,13 @@ class MobileAboutUs extends StatelessWidget {
 
   Container _aboutUs() {
     return Container(
-      margin: const EdgeInsets.only(top: 10),
+      margin: const  EdgeInsets.only(top: 10),
       child: Column(
         children: [
           Text(
             "About Us",
             style: GoogleFonts.poppins(
-              fontSize: 28,
+              fontSize: 26,
               fontWeight: FontWeight.w600,
             ),
             textAlign: TextAlign.end,
@@ -48,12 +48,13 @@ class MobileAboutUs extends StatelessWidget {
             height: 10,
           ),
           SizedBox(
-              height: 280, child: Lottie.asset("assets/images/about-us.json")),
+              height: 280, child: Image.asset("images/team_work.png")),
           const SizedBox(
             height: 10,
           ),
           Container(
-            padding: const EdgeInsets.all(13),
+            padding: const  EdgeInsets.all(13),
+            margin: const EdgeInsets.only(left: 15,right: 15),
             decoration: BoxDecoration(
 
                 shape: BoxShape.rectangle,
@@ -65,7 +66,7 @@ class MobileAboutUs extends StatelessWidget {
               "That’s why we have created this website to provide you with "
               "the most up-to-date information about universities and colleges in  India.",
               style: GoogleFonts.poppins(
-                  fontSize: 20, fontWeight: FontWeight.w400),
+                  fontSize: 16, fontWeight: FontWeight.w400),
               textAlign: TextAlign.start,
             ),
           ),
@@ -76,14 +77,14 @@ class MobileAboutUs extends StatelessWidget {
 
   Container _whatWeDo() {
     return Container(
-      margin: const EdgeInsets.only(top: 10),
+      margin: const EdgeInsets.only(top:10,left: 15,right: 15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
             "What we do",
             style: GoogleFonts.poppins(
-              fontSize: 28,
+              fontSize: 26,
               fontWeight: FontWeight.w600,
             ),
             textAlign: TextAlign.end,
@@ -93,10 +94,10 @@ class MobileAboutUs extends StatelessWidget {
           ),
           SizedBox(
               height: 280,
-              child: Lottie.network(
-                  "https://assets7.lottiefiles.com/packages/lf20_cmaqoazd.json")),
+              child: Image.asset(
+                  "images/what_we_do.png")),
           Container(
-             padding: const EdgeInsets.all(13),
+             padding: const  EdgeInsets.all(13),
             decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(8)),
@@ -108,7 +109,7 @@ class MobileAboutUs extends StatelessWidget {
                 "We provide you with the information you need to make an informed "
                 "decision about which university or college is the right fit for you.",
                 style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.w400),textDirection: TextDirection.ltr,),
+                    fontSize: 16, fontWeight: FontWeight.w400),textDirection: TextDirection.ltr,),
           ),
         ],
       ),
@@ -117,14 +118,15 @@ class MobileAboutUs extends StatelessWidget {
 
   Widget _ourVision() {
     return Container(
-      padding: const EdgeInsets.all(13),
+      padding: const  EdgeInsets.all(13),
+      margin: const EdgeInsets.only(left: 15,right: 15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
         "Our Mission",
             style: GoogleFonts.poppins(
-              fontSize: 28,
+              fontSize: 26,
               fontWeight: FontWeight.w600,
             ),
             textAlign: TextAlign.end,
@@ -134,8 +136,8 @@ class MobileAboutUs extends StatelessWidget {
           ),
           SizedBox(
               height: 280,
-              child: Lottie.network(
-              "https://assets5.lottiefiles.com/private_files/lf30_shvmjadr.json"),),
+              child: Image.asset(
+              "images/our_vision.png"),),
            Container(
             decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -147,8 +149,8 @@ class MobileAboutUs extends StatelessWidget {
                     "you make the best decision for yourself and "
                     "your future. So, explore our website and learn",
                 style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.w400),textDirection: TextDirection.ltr,),
-          ),
+                    fontSize: 16, fontWeight: FontWeight.w400),
+          ),)
         ],
       ),
     );

@@ -25,8 +25,8 @@ class AboutUs extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 FittedBox(
-                  fit: BoxFit.fill,
-                  alignment: Alignment.centerRight,
+                    fit: BoxFit.fill,
+                    alignment: Alignment.centerRight,
                     child: _aboutUs()),
                 const SizedBox(
                   height: 60,
@@ -50,71 +50,19 @@ class AboutUs extends StatelessWidget {
   Widget _aboutUs() {
     return Container(
       margin: const EdgeInsets.only(top: 10),
-      child: Column(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           SizedBox(
-              height: 400, child: Lottie.asset("assets/images/about-us.json")),
+              height: 400,
+              child: Image.asset("images/team_work.png")),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "About Us",
                 style: GoogleFonts.poppins(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w600,
-                ),
-                textAlign: TextAlign.end,
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(18),
-                    decoration:  BoxDecoration(
-                    color: Colors.lightBlue[100],
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(8)
-                    ),
-                    child: Text(
-                        "Welcome to UpCareer."
-                        "We understand the importance of \n making the right decision when it"
-                        " comes to choosing the \n right university or college after high school."
-                        "That’s why we \n have created this website to provide you with "
-                        "the most \n up-to-date information about universities and colleges \n in  India.",
-                        style: GoogleFonts.poppins(
-                            fontSize: 22, fontWeight: FontWeight.w400)),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Container _whatWeDo() {
-    return Container(
-      margin: const EdgeInsets.only(top: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          SizedBox(
-              height: 400,
-              child: Lottie.network(
-                  "https://assets7.lottiefiles.com/packages/lf20_cmaqoazd.json")),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "What we do",
-                style: GoogleFonts.poppins(
-                  fontSize: 28,
+                  fontSize: 26,
                   fontWeight: FontWeight.w600,
                 ),
                 textAlign: TextAlign.end,
@@ -133,15 +81,16 @@ class AboutUs extends StatelessWidget {
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.circular(8)
                     ),
-                    child: Text(
-                        "Our experienced team of education experts has gathered \n"
-                        "detailed information about universities and colleges from India \n"
-                        "We also provide reviews from current and past students so you\n"
-                        "can get a better understanding of each college/university. \n"
-                        "We provide you with the information you need to make an informed\n"
-                        "decision about which university or college is the right fit for you.",
-                        style: GoogleFonts.poppins(
-                            fontSize: 22, fontWeight: FontWeight.w400)),
+                    child:
+                      Text("Welcome to UpCareer."
+                          "We understand the importance of \n making the right decision when it"
+                          " comes to choosing the \n right university or college after high school."
+                          "That’s why we \n have created this website to provide you with "
+                          "the most \n up-to-date information about universities and colleges \n in  India.",
+                          style: GoogleFonts.poppins(
+                              fontSize: 16, fontWeight: FontWeight.w400)),
+
+
                   ),
                 ],
               ),
@@ -162,13 +111,13 @@ class AboutUs extends StatelessWidget {
             Text(
               "Our Mission",
               style: GoogleFonts.poppins(
-                fontSize: 28,
+                fontSize: 26,
                 fontWeight: FontWeight.w600,
               ),
               textAlign: TextAlign.end,
             ),
             const SizedBox(
-              width: 15,
+              width: 26,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -183,21 +132,75 @@ class AboutUs extends StatelessWidget {
                   ),
                   child: Text(
                       "We take into consideration the quality of education,\n"
-                      "the cost of the program, and other factors to give \n"
-                      "you the best advice. We are committed to helping \n"
-                      "you make the best decision for yourself and your \n"
-                      "your future. So, explore our website and learn ",
+                          "the cost of the program, and other factors to give \n"
+                          "you the best advice. We are committed to helping \n"
+                          "you make the best decision for yourself and your \n"
+                          "your future. So, explore our website and learn ",
                       style: GoogleFonts.poppins(
-                          fontSize: 22, fontWeight: FontWeight.w400)),
+                          fontSize: 16, fontWeight: FontWeight.w400)),
                 ),
               ],
             ),
           ],
         ),
-        Lottie.network(
-            "https://assets5.lottiefiles.com/private_files/lf30_shvmjadr.json",
+        Image.asset(
+            "images/our_vision.png",
             height: 300),
       ],
+    );
+  }
+
+  Container _whatWeDo() {
+    return Container(
+      margin: const EdgeInsets.only(top: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          SizedBox(
+              height: 400,
+              child: Image.asset(
+                  "images/what_we_do.png")),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "What we do",
+                style: GoogleFonts.poppins(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.end,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(18),
+                    decoration:  BoxDecoration(
+                        color: Colors.lightBlue[100],
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(8)
+                    ),
+                    child: Text(
+                        "Our experienced team of education experts has gathered \n"
+                            "detailed information about universities and colleges from India \n"
+                            "We also provide reviews from current and past students so you\n"
+                            "can get a better understanding of each college/university. \n"
+                            "We provide you with the information you need to make an informed\n"
+                            "decision about which university or college is the right fit for you.",
+                        style: GoogleFonts.poppins(
+                            fontSize: 16, fontWeight: FontWeight.w400)),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

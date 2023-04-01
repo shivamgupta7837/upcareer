@@ -46,8 +46,38 @@ class SubjectsForSeniorSecondary {
             icon: const Icon(Icons.search_rounded),
             onPressed: () {
               if (_medicalFormKey.currentState!.validate()) {
-                print(" med validate");
-                print("$medicalSubjectController");
+                if (medicalSubjectController.text == "biology") {
+                  GetDocPath.path = "biology";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChooseSubjects()));
+                } else if (medicalSubjectController.text == "physics") {
+                  GetDocPath.path = "physics";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChooseSubjects()));
+                } else if (medicalSubjectController.text == "english") {
+                  GetDocPath.path = "english";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChooseSubjects()));
+                } else if (medicalSubjectController.text == "chemistry") {
+                  GetDocPath.path = "chemistry";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChooseSubjects()));
+                } else if (medicalSubjectController.text ==
+                    "physical education") {
+                  GetDocPath.path = "physical education";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChooseSubjects()));
+                }
               }
             },
           ),
@@ -82,13 +112,50 @@ class SubjectsForSeniorSecondary {
           keyBoardType: TextInputType.text,
           enableborder: true,
           suffixIcon: IconButton(
-            icon: const Icon(Icons.search_rounded),
-            onPressed: () {
-              if (_nonMedicalFormKey.currentState!.validate()) {
-                print("non medical valiadte");
-              }
-            },
-          ),
+              icon: const Icon(Icons.search_rounded),
+              onPressed: () {
+                if (_nonMedicalFormKey.currentState!.validate()) {
+                  if (nonMedSubjectController.text == "maths") {
+                    GetDocPath.path = "maths";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  } else if (nonMedSubjectController.text == "physics") {
+                    GetDocPath.path = "physics";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  } else if (nonMedSubjectController.text == "english") {
+                    GetDocPath.path = "english";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  } else if (nonMedSubjectController.text == "chemistry") {
+                    GetDocPath.path = "chemistry";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  } else if (nonMedSubjectController.text ==
+                      "physical education") {
+                    GetDocPath.path = "physical education";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  } else if (nonMedSubjectController.text ==
+                      "computer science") {
+                    GetDocPath.path = "computer science";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  }
+                }
+              }),
         ),
       ),
     );
@@ -124,9 +191,7 @@ class SubjectsForSeniorSecondary {
             icon: const Icon(Icons.search_rounded),
             onPressed: () {
               if (_commerceFormKey.currentState!.validate()) {
-                print("yes validate");
                 if (commSubjectController.text == "economics") {
-                  print("in 2nd if");
                   GetDocPath.path = "economics";
                   Navigator.push(
                       context,
@@ -140,6 +205,24 @@ class SubjectsForSeniorSecondary {
                           builder: (context) => ChooseSubjects()));
                 } else if (commSubjectController.text == "business studies") {
                   GetDocPath.path = "business studies";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChooseSubjects()));
+                } else if (commSubjectController.text == "english") {
+                  GetDocPath.path = "english";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChooseSubjects()));
+                } else if (commSubjectController.text == "physical education") {
+                  GetDocPath.path = "physical education";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChooseSubjects()));
+                } else if (commSubjectController.text == "maths") {
+                  GetDocPath.path = "maths";
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -182,13 +265,61 @@ class SubjectsForSeniorSecondary {
           keyBoardType: TextInputType.text,
           enableborder: true,
           suffixIcon: IconButton(
-            icon: const Icon(Icons.search_rounded),
-            onPressed: () {
-              if (_humanitiesFormKey.currentState!.validate()) {
-                print("humanities validate");
-              }
-            },
-          ),
+              icon: const Icon(Icons.search_rounded),
+              onPressed: () {
+                if (_humanitiesFormKey.currentState!.validate()) {
+                  if (humanitiesSubjectController.text == "economics") {
+                    GetDocPath.path = "economics";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  } else if (humanitiesSubjectController.text == "history") {
+                    GetDocPath.path = "history";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  } else if (humanitiesSubjectController.text == "geography") {
+                    GetDocPath.path = "geography";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  } else if (humanitiesSubjectController.text == "english") {
+                    GetDocPath.path = "english";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  } else if (humanitiesSubjectController.text ==
+                      "physical education") {
+                    GetDocPath.path = "physical education";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  } else if (humanitiesSubjectController.text == "political science") {
+                    GetDocPath.path = "political science";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  } else if (humanitiesSubjectController.text == "psychology") {
+                    GetDocPath.path = "psychology";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  }else if (humanitiesSubjectController.text == "sociology") {
+                    GetDocPath.path = "sociology";
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChooseSubjects()));
+                  }
+                }
+              }),
         ),
       ),
     );

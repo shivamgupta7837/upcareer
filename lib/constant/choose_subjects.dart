@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upcareer/firebase/crud.dart';
+import 'package:upcareer/ui/screens/mobile_body/mobiles_screens/mobfindcollege.dart';
 import 'package:upcareer/ui/screens/web/tabs/find_colleges.dart';
 import 'colors.dart';
 
@@ -76,7 +77,7 @@ class ChooseSubjects extends StatelessWidget {
                       child: Text('Data not found.'),
                     );
                   }
-                  return displayListTiles(context,snapshot);
+                  return displayListTiles(context,snapshot,_size);
                 },
               ),
             ),
@@ -86,7 +87,7 @@ class ChooseSubjects extends StatelessWidget {
     );
   }
 
-  Column displayListTiles(BuildContext context,AsyncSnapshot<DocumentSnapshot<Object?>> snapshot) {
+  Column displayListTiles(BuildContext context,AsyncSnapshot<DocumentSnapshot<Object?>> snapshot, Size size) {
     return Column(
       children: [
         Container(
@@ -162,10 +163,18 @@ class ChooseSubjects extends StatelessWidget {
           children: [
             TextButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => WebFindColleges()));
+                  if(size.width > 700){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WebFindColleges()));
+                  }else{
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MobFindCollege()));
+                  }
+
                 },
                 child: Text(
                   "Want to explore more fields ?",

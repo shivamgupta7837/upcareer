@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upcareer/constant/colors.dart';
@@ -18,10 +17,11 @@ class _MobFindCollegeState extends State<MobFindCollege> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-          child: Stack(children: [
-      Column(
-            mainAxisAlignment: MainAxisAlignment.center, children: [
-              SizedBox(height: 70,),
+      child: Stack(children: [
+        Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          const SizedBox(
+            height: 70,
+          ),
           SizedBox(
               height: 330,
               child: Image.asset("assets/images/degree_illustration.png")),
@@ -84,20 +84,20 @@ class _MobFindCollegeState extends State<MobFindCollege> {
               ),
             ],
           ),
-      ]),
+        ]),
 
-      ///blur screen behind pop up container
-      Positioned(
+        ///blur screen behind pop up container
+        Positioned(
             child: isSeniorSecondaryPressed == true
                 ? Container(
                     color: Colors.black.withOpacity(0.3),
                   )
                 : Container()),
 
-      /// pop up container
-      if (isSeniorSecondaryPressed == true)
+        /// pop up container
+        if (isSeniorSecondaryPressed == true)
           Container(
-              margin: EdgeInsets.only(top: 235, left: 18, right: 18),
+              margin: const EdgeInsets.only(top: 235, left: 18, right: 18),
               height: isSeniorSecondaryPressed == true
                   ? 375
                   : 0, //height of floating container
@@ -127,14 +127,15 @@ class _MobFindCollegeState extends State<MobFindCollege> {
                                 isSeniorSecondaryPressed = false;
                               });
                             },
-                            icon: Icon(Icons.cancel, color: darkBlue, size: 20)),
+                            icon:
+                                Icon(Icons.cancel, color: darkBlue, size: 20)),
                       ],
                     ),
                   ),
-                  DetailsOfSeniorSecondaryForm(),
+                 const DetailsOfSeniorSecondaryForm(),
                 ],
               ))
-    ]),
-        ));
+      ]),
+    ));
   }
 }
