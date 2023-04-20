@@ -27,22 +27,3 @@ class StudentsQueries {
   }
 }
 
-
-class GetDocPath{
-  static  String? path;
-
-    Future<DocumentSnapshot<Object?>>? getUserDegree() async{
-
-    DocumentReference<Map<String, dynamic>> docRef = FirebaseFirestore.instance
-        .collection('degrees')
-        .doc(path);
-
-    DocumentSnapshot<Map<String, dynamic>> doc = await docRef.get();
-
-    if (doc.exists) {
-      return doc;
-    } else {
-      return doc;
-    }
-  }
-}

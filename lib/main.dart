@@ -5,6 +5,7 @@ import 'package:upcareer/ui/screens/homepage.dart';
 import 'package:upcareer/ui/screens/web/tabs/AboutUs.dart';
 import 'package:upcareer/ui/screens/web/tabs/find_colleges.dart';
 import 'package:upcareer/ui/screens/web/tabs/ask_query.dart';
+import 'package:upcareer/ui/universities.dart';
 
 import 'constant/choose_subjects.dart';
 
@@ -44,17 +45,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return   MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'UpCareer',
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const HomePage(),
-        '/about': (context)=> const AboutUs(),
-        '/recommendations': (context)=> const WebFindColleges(),
-        '/ask_query': (context)=> AskQuery(),
-      },
-      // home: Dummy(),
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => const HomePage(),
+      //   '/about': (context)=> const AboutUs(),
+      //   '/recommendations': (context)=> const WebFindColleges(),
+      //   '/ask_query': (context)=> AskQuery(),
+      // },
+      home: Universities(),
     );
   }
 

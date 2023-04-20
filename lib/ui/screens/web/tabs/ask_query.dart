@@ -5,7 +5,7 @@ import 'package:upcareer/ui/widgets/MyElevatedButton.dart';
 import 'package:upcareer/ui/widgets/app_bar.dart';
 import 'package:upcareer/ui/widgets/myFormField.dart';
 
-import '../../../../firebase/crud.dart';
+import '../../../../firebase/query.dart';
 
 class AskQuery extends StatefulWidget {
   const AskQuery({super.key});

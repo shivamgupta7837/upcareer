@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:upcareer/constant/colors.dart';
 import 'package:upcareer/ui/widgets/MyElevatedButton.dart';
 
-import '../../../../firebase/crud.dart';
+import '../../../../firebase/query.dart';
 
 class MobAskQuery extends StatefulWidget {
   MobAskQuery({super.key});

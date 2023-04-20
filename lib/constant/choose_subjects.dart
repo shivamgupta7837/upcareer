@@ -1,13 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upcareer/firebase/crud.dart';
+import 'package:upcareer/firebase/getDocuments.dart';
+import 'package:upcareer/firebase/query.dart';
 import 'package:upcareer/ui/screens/mobile_body/mobiles_screens/mobfindcollege.dart';
 import 'package:upcareer/ui/screens/web/tabs/find_colleges.dart';
+import 'package:upcareer/ui/universities.dart';
+import 'package:upcareer/ui/universities.dart';
+import 'package:upcareer/ui/universities.dart';
+import 'package:upcareer/ui/universities.dart';
 import 'colors.dart';
 
 class ChooseSubjects extends StatelessWidget {
-  final db = GetDocPath();
+  final db = GetDocuments();
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +108,7 @@ class ChooseSubjects extends StatelessWidget {
             ),
             trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
-              print("pressed");
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>Universities()));
             },
           ),
         ),
@@ -120,7 +125,7 @@ class ChooseSubjects extends StatelessWidget {
             ),
             trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
-              print("pressed");
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>Universities()));
             },
           ),
         ),
@@ -137,7 +142,7 @@ class ChooseSubjects extends StatelessWidget {
             ),
             trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
-              print("pressed");
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>Universities()));
             },
           ),
         ),
@@ -154,7 +159,7 @@ class ChooseSubjects extends StatelessWidget {
             ),
             trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
-              print("pressed");
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>Universities()));
             },
           ),
         ),
