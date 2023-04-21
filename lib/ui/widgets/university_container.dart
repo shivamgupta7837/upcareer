@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:upcareer/firebase/getDocuments.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -43,10 +44,7 @@ class UniversityContainer extends StatelessWidget {
                         return Container(
                           height: 200.0,
                           alignment: Alignment.center,
-                          child: const CircularProgressIndicator(
-                            valueColor:
-                            AlwaysStoppedAnimation<Color>(Colors.black45),
-                          ),
+                          child: Lottie.asset("images/loading.json",height: 100.0)
                         );
                       default:
                         List<DocumentSnapshot> data = snapshot.data!.docs;
@@ -78,23 +76,27 @@ class UniversityContainer extends StatelessWidget {
                                           margin: const EdgeInsets.only(
                                               top: 15),
                                           height: 120,
-                                          child: Image.asset(
-                                              "images/lpu-about-logo.jpg")),
+                                          child: Image.network(
+                                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwE42MFp_Z6PHn6d1sodtetDXh28uDXZcLbA&usqp=CAU",)),
                                     ],
                                   ),
                                   const SizedBox(
                                     height: 10,
                                   ),
                                   Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        "${data[index]['college']}",
-                                        style: GoogleFonts.roboto(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w600),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left:18.0),
+                                        child: Text(
+                                          "${data[index]['name']}",
+                                          style: GoogleFonts.roboto(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600),
+                                          textDirection: TextDirection.ltr,
+                                        ),
                                       ),
+                                      Spacer(),
                                       IconButton(
                                           onPressed: () {
                                             print('pressed');
@@ -147,9 +149,9 @@ class UniversityContainer extends StatelessWidget {
                                             const SizedBox(
                                               height: 10,
                                             ),
-                                            const  Icon(
-                                              Icons.check,
-                                              color: Colors.green,
+                                              Icon(
+                                                data[index]['scholarship']==true ?  Icons.check:Icons.cancel_outlined,
+                                              color: data[index]['scholarship']==true ?  Colors.green:Colors.red,
                                               size: 19,
                                             ),
                                           ],
@@ -171,8 +173,8 @@ class UniversityContainer extends StatelessWidget {
                                               height: 10,
                                             ),
                                             Icon(
-                                              Icons.cancel_outlined,
-                                              color: Colors.red,
+                                              data[index]['entrance exam']==false ?  Icons.cancel_outlined:Icons.check,
+                                              color:  data[index]['entrance exam']==false ?  Colors.red:Colors.green,
                                               size: 19,
                                             ),
                                           ],

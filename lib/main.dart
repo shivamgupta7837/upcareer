@@ -48,14 +48,14 @@ class MyApp extends StatelessWidget {
     return   MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'UpCareer',
-      // initialRoute: '/',
-      // routes: {
-      //   '/': (context) => const HomePage(),
-      //   '/about': (context)=> const AboutUs(),
-      //   '/recommendations': (context)=> const WebFindColleges(),
-      //   '/ask_query': (context)=> AskQuery(),
-      // },
-      home: Universities(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/about': (context)=> const AboutUs(),
+        '/recommendations': (context)=> const WebFindColleges(),
+        '/ask_query': (context)=> AskQuery(),
+      },
+      // home: Universities(),
     );
   }
 

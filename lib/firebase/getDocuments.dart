@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class GetDocuments{
   static  String? degreePath;
-  static  String? universityPath;
+  static  String? universitiesPath;
   final db = FirebaseFirestore.instance;
 
   Future<DocumentSnapshot<Object?>>? getUserDegree() async{
@@ -19,12 +19,12 @@ class GetDocuments{
       return doc;
     }
   }
+
    getUniversitiesDetails() {
     final data =  db
         .collection('universities')
         .doc('uni')
-        .collection('bcom').snapshots();
-    print("dataaaaaaaaaaaaaaaaaaaaaaaaaaaa: ${data.runtimeType}");
+        .collection(universitiesPath!).snapshots();
     return data;
   }
 }
