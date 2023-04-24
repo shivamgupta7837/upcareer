@@ -9,23 +9,13 @@ import 'package:url_launcher/url_launcher.dart';
 import '../firebase/getDocuments.dart';
 
 class Universities extends StatelessWidget {
-  // const Universities({Key? key}) : super(key: key);
+
   final doc = GetDocuments();
-
-  // getData() {
-  //   final data = FirebaseFirestore.instance
-  //       .collection('universities')
-  //       .doc('uni')
-  //       .collection('bcom')
-  //       .snapshots();
-  //   print(data.runtimeType);
-  //   return data;
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: skyBlue,
           title: Text(
@@ -43,7 +33,7 @@ class Universities extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                    height: 700,
+                    height: 600,
                     padding: const EdgeInsets.only(right: 18.0),
                     child: const VerticalDivider(
                       color: Colors.black,

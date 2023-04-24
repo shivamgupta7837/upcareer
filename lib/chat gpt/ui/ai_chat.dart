@@ -1,8 +1,7 @@
-import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:upcareer/chat%20gpt/ui/chat_messaged.dart';
 import 'package:upcareer/constant/colors.dart';
+import 'package:upcareer/model/api_service.dart';
 
 class ChatUi extends StatefulWidget {
  
@@ -12,21 +11,8 @@ class ChatUi extends StatefulWidget {
 
 class _ChatUiState extends State<ChatUi> {
   TextEditingController questionController = TextEditingController();
-
-  List<ChatMesseges> _listOfMessages = [];
-
-
-  void _sendMesseges(){
-    ChatMesseges messages = ChatMesseges(text: questionController.text, sender: 'user');
-     setState(() {
-      
-    _listOfMessages.insert(0, messages);
-     });
-     questionController.clear();
-
-
-  }
-  @override
+  final ai = ApiService();
+ @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -50,10 +36,16 @@ class _ChatUiState extends State<ChatUi> {
           Flexible(
             child: ListView.builder(
               reverse: true,
-              itemCount: _listOfMessages.length,
+              itemCount: 5,
               itemBuilder: (
                 BuildContext context, index) {
-            return _listOfMessages[index];
+            return ListTile(
+              // leading: CircleAvatar(
+              //   radius: 10,
+              //     backgroundColor: skyBlue,child: const Text("U",style: TextStyle(fontSize: 10),)),
+              // title: Text(),
+
+            );
           })),
           Row(
             children: [
@@ -62,7 +54,6 @@ class _ChatUiState extends State<ChatUi> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
                     controller: questionController,
-                    onSubmitted: (value) => _sendMesseges(),
                     decoration: const InputDecoration.collapsed(
                         hintText: "Question ?",
                         hintStyle: TextStyle(fontSize: 14)),
@@ -77,8 +68,13 @@ class _ChatUiState extends State<ChatUi> {
                       Icons.send,
                       size: 14,
                     ),
-                    onPressed: () {
-                      _sendMesseges();
+                    onPressed: () async{
+                      try{
+                      await ai.getModels();
+                      }catch(e){
+                        print("Error from pressing button is : $e");
+                      }
+
                     },
                   ),
                 ],

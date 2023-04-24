@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
         '/recommendations': (context)=> const WebFindColleges(),
         '/ask_query': (context)=> AskQuery(),
       },
-      // home: Universities(),
+      // home: Dummy(),
     );
   }
 

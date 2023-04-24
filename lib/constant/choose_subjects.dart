@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:upcareer/firebase/getDocuments.dart';
+import 'package:upcareer/ui/screens/mobile_body/mobiles_screens/mobUniversities.dart';
 import 'package:upcareer/ui/screens/mobile_body/mobiles_screens/mobfindcollege.dart';
 import 'package:upcareer/ui/screens/web/tabs/find_colleges.dart';
 import 'package:upcareer/ui/universities.dart';
@@ -16,16 +17,6 @@ class ChooseSubjects extends StatelessWidget {
     Size _size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon:const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        // automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: skyBlue,
         title: Text(
@@ -55,7 +46,7 @@ class ChooseSubjects extends StatelessWidget {
                         fontStyle: FontStyle.italic))
               ],
             ),
-           const SizedBox(height: 120,),
+            SizedBox(height: _size.width >700?120:20),
             //subjects container
             SizedBox(
               width: _size.width < 700 ? 300 : 400,
@@ -64,7 +55,7 @@ class ChooseSubjects extends StatelessWidget {
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return  Center(
-                      child:Lottie.asset("images/loading.json",height: 100.0)
+                      child:Lottie.asset("assets/images/loading.json",height: 100.0)
                     );
                   }
 
@@ -106,7 +97,10 @@ class ChooseSubjects extends StatelessWidget {
             trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
              GetDocuments.universitiesPath = snapshot.data!['degree1'];
+             if(size.width > 700){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>Universities()));
+             }
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MobUniversities()));
             },
           ),
         ),
@@ -124,7 +118,10 @@ class ChooseSubjects extends StatelessWidget {
             trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
              GetDocuments.universitiesPath = snapshot.data!['degree2'];
+              if(size.width > 700){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>Universities()));
+             }
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MobUniversities()));
             },
           ),
         ),
@@ -142,7 +139,10 @@ class ChooseSubjects extends StatelessWidget {
             trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
              GetDocuments.universitiesPath = snapshot.data!['degree3'];
+              if(size.width > 700){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>Universities()));
+             }
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MobUniversities()));
             },
           ),
         ),
@@ -160,7 +160,10 @@ class ChooseSubjects extends StatelessWidget {
             trailing:const Icon(Icons.arrow_forward_ios_outlined,size: 14,color: Colors.black,),
             onTap: (){
              GetDocuments.universitiesPath = snapshot.data!['degree4'];
+              if(size.width > 700){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>Universities()));
+             }
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MobUniversities()));
             },
           ),
         ),
@@ -178,7 +181,7 @@ class ChooseSubjects extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => MobFindCollege()));
+                            builder: (context) => MobUniversities()));
                   }
 
                 },

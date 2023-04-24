@@ -73,7 +73,6 @@ class _DetailsOfSeniorSecondaryFormState
             onPress: () {
               setState(() {
                 course = "non-med";
-                // subjectsForNonMedical();
               });
             },
             buttonBg: Colors.white,

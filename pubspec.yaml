@@ -40,7 +40,6 @@ dependencies:
   google_nav_bar: 5.0.6
   firebase_core: 2.7.0
   cloud_firestore: ^4.4.3
-  chat_gpt_sdk: 2.1.1
   flutterfire: ^0.0.1
   configure: ^1.0.1
   url_launcher: 6.1.10

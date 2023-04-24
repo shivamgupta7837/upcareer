@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 
 class MobileAboutUs extends StatelessWidget {
   const MobileAboutUs({
@@ -48,7 +47,7 @@ class MobileAboutUs extends StatelessWidget {
             height: 10,
           ),
           SizedBox(
-              height: 280, child: Image.asset("images/team_work.png")),
+              height: 280, child: Image.asset("assets/images/team_work.png")),
           const SizedBox(
             height: 10,
           ),
@@ -95,7 +94,7 @@ class MobileAboutUs extends StatelessWidget {
           SizedBox(
               height: 280,
               child: Image.asset(
-                  "images/what_we_do.png")),
+                  "assets/images/what_we_do.png")),
           Container(
              padding: const  EdgeInsets.all(13),
             decoration: BoxDecoration(
@@ -137,7 +136,7 @@ class MobileAboutUs extends StatelessWidget {
           SizedBox(
               height: 280,
               child: Image.asset(
-              "images/our_vision.png"),),
+              "assets/images/our_vision.png"),),
            Container(
             decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
