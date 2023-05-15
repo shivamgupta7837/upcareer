@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upcareer/constant/colors.dart';
-import 'package:upcareer/ui/screens/web/tabs/find_colleges.dart';
 import 'package:upcareer/ui/widgets/MyElevatedButton.dart';
 import '../../widgets/app_bar.dart';
 

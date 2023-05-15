@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:upcareer/constant/colors.dart';
+import 'package:upcareer/ui/screens/mobile_body/mobiles_screens/mobGraduation.dart';
 import 'package:upcareer/ui/widgets/MyElevatedButton.dart';
 import '../../web/student_details/details_for_senior_secondary.dart';
 
@@ -76,8 +77,8 @@ class _MobFindCollegeState extends State<MobFindCollege> {
                         label: 'Graduation',
                         buttonBg: Colors.white,
                         onPress: () {
-                          MaterialPageRoute(
-                              builder: (context) => const MobFindCollege());
+                            Navigator.push((context), MaterialPageRoute(builder: (context)=>Graduation()));
+
                         },
                       )),
                 ],

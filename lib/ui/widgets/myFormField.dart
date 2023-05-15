@@ -43,7 +43,7 @@ class MyTextField extends StatelessWidget {
       validator: customValidator,
       autocorrect: true,
       inputFormatters: [
-        FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-Z\d_ |]+$')),
+        FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-Z.@\d_ |]+$')),
       ],
     );
   }

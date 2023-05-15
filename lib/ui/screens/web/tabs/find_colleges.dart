@@ -13,6 +13,7 @@ class WebFindColleges extends StatefulWidget {
 }
 
 class _WebFindCollegesState extends State<WebFindColleges> {
+
   bool isSeniorSecondaryPressed = false;
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class _WebFindCollegesState extends State<WebFindColleges> {
             /// pop up container
             if(isSeniorSecondaryPressed == true)
                 Container(
-              margin: EdgeInsets.only(top: 195,left: 330),
+              margin:const EdgeInsets.only(top: 195,left: 330),
                     height:isSeniorSecondaryPressed==true ? 275: 0, //height of floating container
                     width: isSeniorSecondaryPressed==true ?700:0, //width of floating container
                     decoration: BoxDecoration(
@@ -79,7 +80,7 @@ class _WebFindCollegesState extends State<WebFindColleges> {
                           ),
                         ),
                         //it contain container for adding details of user preferences
-                        DetailsOfSeniorSecondaryForm(),
+                        const DetailsOfSeniorSecondaryForm(),
                       ],
                     ))
 
@@ -144,12 +145,7 @@ class _WebFindCollegesState extends State<WebFindColleges> {
                     height: 35,
                     child: CustomElevatedButton(
                       label: 'Graduation',
-                      onPress: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const WebFindColleges()));
-                      },
+                      onPress: ()=>null,
                       buttonBg: Colors.white,icon: Icons.arrow_circle_right,
                     )),
               ],

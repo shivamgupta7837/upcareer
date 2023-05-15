@@ -15,7 +15,7 @@ class UniversityContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: SizedBox(
-          width: MediaQuery.of(context).size.width / 1.46,
+          width: MediaQuery.of(context).size.width / 1,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -40,7 +40,7 @@ class UniversityContainer extends StatelessWidget {
                   stream: gd.getUniversitiesDetails(),
                   builder: (context, snapshot) {
                     if (snapshot.hasError) {
-                      return Text('Error: ${snapshot.error}');
+                      return Lottie.asset("assets/images/error.json");
                     }
                     switch (snapshot.connectionState) {
                       case ConnectionState.waiting:
@@ -79,9 +79,10 @@ class UniversityContainer extends StatelessWidget {
                                               margin: const EdgeInsets.only(
                                                   top: 15),
                                               height: 120,
-                                              child: Image.network(
+                                              child: snapshot.hasData? Image.network(
                                                 "${data[index]['logo']}",
-                                              )),
+                                              ):const Center(child: Text("Image not found"),)
+                                          )
                                         ],
                                       ),
                                       const SizedBox(
@@ -92,19 +93,19 @@ class UniversityContainer extends StatelessWidget {
                                             MainAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.only(
+                                            padding:  const EdgeInsets.only(
                                                 left: 18.0),
-                                            child: Text(
+                                            child: snapshot.hasData ? Text(
                                               "${data[index]['name']}",
                                               style: GoogleFonts.roboto(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.w600),
-                                              textDirection: TextDirection.ltr,
-                                            ),
+                                              textDirection: TextDirection.ltr
+                                            ):const Center(child: Text("Image not found"),)
                                           ),
-                                          Spacer(),
+                                         const  Spacer(),
                                           IconButton(
-                                              onPressed: () async {
+                                              onPressed: snapshot.hasData ?() async {
                                                 final url =
                                                     "${data[index]['website']}";
                                                 if (await canLaunchUrl(
@@ -114,7 +115,7 @@ class UniversityContainer extends StatelessWidget {
                                                 } else {
                                                   throw "Could not launch $url";
                                                 }
-                                              },
+                                              }:null,
                                               icon: const Icon(
                                                 Icons.info_outlined,
                                                 size: 19,
@@ -139,13 +140,13 @@ class UniversityContainer extends StatelessWidget {
                                             child: Padding(
                                               padding: const EdgeInsets.only(
                                                   right: 15.0),
-                                              child: Text(
+                                              child:snapshot.hasData ? Text(
                                                 "${data[index]['address']}",
                                                 style: GoogleFonts.roboto(
                                                     fontSize: 12,
                                                     fontWeight:
                                                         FontWeight.w400),
-                                              ),
+                                              ):const Center(child: Text("Image not found"),)
                                             ),
                                           ),
                                         ],
@@ -174,7 +175,7 @@ class UniversityContainer extends StatelessWidget {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-                                                Icon(
+                                                snapshot.hasData ?Icon(
                                                   data[index]['scholarship'] ==
                                                           true
                                                       ? Icons.check
@@ -185,7 +186,7 @@ class UniversityContainer extends StatelessWidget {
                                                       ? Colors.green
                                                       : Colors.red,
                                                   size: 19,
-                                                ),
+                                                ):const Center(child: Text("Image not found"),)
                                               ],
                                             ),
                                           ),
@@ -204,7 +205,7 @@ class UniversityContainer extends StatelessWidget {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-                                                Icon(
+                                               snapshot.hasData ? Icon(
                                                   data[index]['entrance exam'] ==
                                                           false
                                                       ? Icons.cancel_outlined
@@ -215,7 +216,7 @@ class UniversityContainer extends StatelessWidget {
                                                       ? Colors.red
                                                       : Colors.green,
                                                   size: 19,
-                                                ),
+                                                ):const Center(child: Text("Image not found"),)
                                               ],
                                             ),
                                           )
@@ -248,12 +249,12 @@ class UniversityContainer extends StatelessWidget {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-                                                Text(
+                                               snapshot.hasData ? Text(
                                                   "${data[index]['fees']}",
                                                   style: GoogleFonts.roboto(
                                                       fontSize: 14,
                                                       color: Colors.black),
-                                                ),
+                                                ):const Center(child: Text("Image not found"),)
                                               ],
                                             ),
                                           ),
@@ -266,7 +267,7 @@ class UniversityContainer extends StatelessWidget {
                                                   shadowColor: lightBlue,
                                                   elevation: 0,
                                                 ),
-                                                onPressed: () async {
+                                                onPressed: snapshot.hasData ? () async {
                                                   final url =
                                                       "${data[index]['admission']}";
                                                   if (await canLaunchUrl(
@@ -276,7 +277,7 @@ class UniversityContainer extends StatelessWidget {
                                                   } else {
                                                     throw "Could not launch $url";
                                                   }
-                                                },
+                                                }: null,
                                                 child: Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,

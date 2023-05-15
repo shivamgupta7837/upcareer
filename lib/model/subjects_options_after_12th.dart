@@ -21,7 +21,7 @@ class SubjectsForSeniorSecondary {
     "biology",
     "maths",
     "physics",
-    "computer",
+    "computer science",
     "chemistry",
     "english",
     "physical education",
@@ -65,13 +65,15 @@ class SubjectsForSeniorSecondary {
             icon: const Icon(Icons.search_rounded),
             onPressed: () {
               if (_medicalFormKey.currentState!.validate()) {
-                for (int i = 0; i < secondaryList.length; i++) {
-                  if (medicalSubjectController.text.toLowerCase() == secondaryList[i]) {
-                    GetDocuments.degreePath = secondaryList[i];
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ChooseSubjects()));
+                if(GetDocuments.degreePath == null){
+                  for (int i = 0; i < secondaryList.length; i++) {
+                    if (medicalSubjectController.text.toLowerCase() == secondaryList[i]) {
+                      GetDocuments.degreePath = secondaryList[i];
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ChooseSubjects()));
+                    }
                   }
                 }
               }
@@ -99,7 +101,7 @@ class SubjectsForSeniorSecondary {
                 course != 'physics' &&
                 course != 'english' &&
                 course != 'chemistry' &&
-                course != 'computer') {
+                course != 'computer science') {
               return "Enter courses related to non medical Eg: physics,computer,chemistry.";
             } else {
               return null;
@@ -145,6 +147,7 @@ class SubjectsForSeniorSecondary {
                 course != 'english' &&
                 course != 'business studies' &&
                 course != 'economics' &&
+                course != 'computer science' &&
                 course != 'physical education') {
               return "Enter courses related to commerce Eg: accountancy, maths, english";
             } else {
@@ -194,6 +197,7 @@ class SubjectsForSeniorSecondary {
                 course != 'history' &&
                 course != 'physical education' &&
                 course != 'economics' &&
+                course != 'computer science' &&
                 course != "geography") {
               return "Enter courses related to humanities Eg: Sociology, economics, geography.";
             } else {
